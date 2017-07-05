@@ -221,7 +221,7 @@ static int IFFTAndaddWindow_dpdk(__attribute__((unused)) struct rte_mbuf *Data_I
 	csd_data_IDFT(csd_data,IFFT_data,N_SYM);
 	complex32 *he_sym[N_STS];
 	add_window_for_he(X_VHTLTF,  IFFT_data,  regForAddWin, he_sym);
-
+	for(i=0; i<N_STS; i++) free(he_sym[i]);
 
  //		generateSTF(oneStreamOfSTF[i], i);
  //		generateLTF(oneStreamOfLTF[i], i);
